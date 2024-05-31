@@ -1,0 +1,21 @@
+query RunInput {
+  cart {
+    deliveryGroups {
+      deliveryAddress {
+        provinceCode
+      }
+    }
+    lines {
+      merchandise {
+        ... on ProductVariant {
+          product {
+            handle
+            ship_to_ca: metafield(namespace: "custom", key: "ship_to_ca") {
+              value
+            }
+          }
+        }
+      }
+    }
+  }
+}
